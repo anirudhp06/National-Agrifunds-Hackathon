@@ -4,6 +4,8 @@
  */
 package national.agrifunds.hackathon;
 
+import javax.swing.SpinnerListModel;
+
 /**
  *
  * @author Anirudh
@@ -27,9 +29,14 @@ public class UI extends javax.swing.JFrame {
     private void initComponents() {
 
         heading = new javax.swing.JLabel();
-        jLabel1 = new javax.swing.JLabel();
+        accNumber = new javax.swing.JLabel();
         accNo = new javax.swing.JTextField();
         check = new javax.swing.JButton();
+        bankChoose = new javax.swing.JLabel();
+        String[] banks={"SBI","Bank of Baroda","HDFC Bank",
+            "Punjab National Bank"};
+        javax.swing.SpinnerListModel spinmodel=new SpinnerListModel(banks);
+        bankNames = new javax.swing.JSpinner(spinmodel);
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBounds(new java.awt.Rectangle(15, 20, 120, 65));
@@ -37,7 +44,7 @@ public class UI extends javax.swing.JFrame {
         heading.setText("Welcome To Kiosk");
         heading.setBorder(new javax.swing.border.MatteBorder(null));
 
-        jLabel1.setText("Enter Account Number");
+        accNumber.setText("Enter Account Number");
 
         accNo.setToolTipText("Enter Account Number");
         accNo.addActionListener(new java.awt.event.ActionListener() {
@@ -53,6 +60,8 @@ public class UI extends javax.swing.JFrame {
             }
         });
 
+        bankChoose.setText("Bank Name");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -65,7 +74,11 @@ public class UI extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(bankChoose, javax.swing.GroupLayout.PREFERRED_SIZE, 116, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(bankNames, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(accNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 129, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(accNo, javax.swing.GroupLayout.PREFERRED_SIZE, 164, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(check))
@@ -76,13 +89,17 @@ public class UI extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addComponent(heading, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(64, 64, 64)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(bankChoose)
+                    .addComponent(bankNames, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(35, 35, 35)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(accNumber, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(accNo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addComponent(check)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addContainerGap(237, Short.MAX_VALUE))
         );
 
         pack();
@@ -95,8 +112,11 @@ public class UI extends javax.swing.JFrame {
     private void checkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_checkActionPerformed
         // TODO add your handling code here:
         try{
-            int acno=Integer.parseInt(accNo.getText().toString());
-            heading.setText("You have entered account number.");
+            int acno=Integer.parseInt(accNo.getText());
+            if(accNo.getText().length()<10)
+                heading.setText("Please enter Valid Account Number");
+            else
+                heading.setText("You have entered account number.");
         }
         catch(Exception e){
             heading.setText("Cannot convert into integer");
@@ -140,8 +160,10 @@ public class UI extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField accNo;
+    private javax.swing.JLabel accNumber;
+    private javax.swing.JLabel bankChoose;
+    private javax.swing.JSpinner bankNames;
     private javax.swing.JButton check;
     private javax.swing.JLabel heading;
-    private javax.swing.JLabel jLabel1;
     // End of variables declaration//GEN-END:variables
 }

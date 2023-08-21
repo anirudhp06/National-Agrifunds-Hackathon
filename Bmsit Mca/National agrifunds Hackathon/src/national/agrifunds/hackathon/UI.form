@@ -31,11 +31,16 @@
               <Component id="heading" min="-2" pref="225" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="304" max="-2" attributes="0"/>
           </Group>
-          <Group type="102" attributes="0">
+          <Group type="102" alignment="0" attributes="0">
               <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" attributes="0">
+                      <Component id="bankChoose" min="-2" pref="116" max="-2" attributes="0"/>
+                      <EmptySpace max="-2" attributes="0"/>
+                      <Component id="bankNames" min="-2" pref="129" max="-2" attributes="0"/>
+                  </Group>
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="jLabel1" min="-2" pref="129" max="-2" attributes="0"/>
+                      <Component id="accNumber" min="-2" pref="129" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="accNo" min="-2" pref="164" max="-2" attributes="0"/>
                   </Group>
@@ -50,14 +55,19 @@
           <Group type="102" alignment="0" attributes="0">
               <EmptySpace min="-2" pref="34" max="-2" attributes="0"/>
               <Component id="heading" min="-2" pref="58" max="-2" attributes="0"/>
-              <EmptySpace min="-2" pref="52" max="-2" attributes="0"/>
+              <EmptySpace min="-2" pref="64" max="-2" attributes="0"/>
               <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="jLabel1" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
+                  <Component id="bankChoose" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="bankNames" alignment="3" min="-2" max="-2" attributes="0"/>
+              </Group>
+              <EmptySpace min="-2" pref="35" max="-2" attributes="0"/>
+              <Group type="103" groupAlignment="3" attributes="0">
+                  <Component id="accNumber" alignment="3" min="-2" pref="38" max="-2" attributes="0"/>
                   <Component id="accNo" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
               <Component id="check" min="-2" max="-2" attributes="0"/>
-              <EmptySpace pref="306" max="32767" attributes="0"/>
+              <EmptySpace pref="237" max="32767" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -73,7 +83,7 @@
         </Property>
       </Properties>
     </Component>
-    <Component class="javax.swing.JLabel" name="jLabel1">
+    <Component class="javax.swing.JLabel" name="accNumber">
       <Properties>
         <Property name="text" type="java.lang.String" value="Enter Account Number"/>
       </Properties>
@@ -93,6 +103,17 @@
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="checkActionPerformed"/>
       </Events>
+    </Component>
+    <Component class="javax.swing.JLabel" name="bankChoose">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Bank Name"/>
+      </Properties>
+    </Component>
+    <Component class="javax.swing.JSpinner" name="bankNames">
+      <AuxValues>
+        <AuxValue name="JavaCodeGenerator_CreateCodeCustom" type="java.lang.String" value="new javax.swing.JSpinner(spinmodel)"/>
+        <AuxValue name="JavaCodeGenerator_CreateCodePre" type="java.lang.String" value="String[] banks={&quot;SBI&quot;,&quot;Bank of Baroda&quot;,&quot;HDFC Bank&quot;,&#xa;&quot;Punjab National Bank&quot;};&#xa;javax.swing.SpinnerListModel spinmodel=new SpinnerListModel(banks);"/>
+      </AuxValues>
     </Component>
   </SubComponents>
 </Form>
